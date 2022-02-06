@@ -9,7 +9,7 @@ export function passwordChecker(
         let confPassword = formGroup.controls['compareControlName'];
 
         if(password.value != confPassword.value){
-            confPassword.setErrors({mustMatch:true})
+            confPassword.setErrors({mustmatch:true})
         }else{
             confPassword.setErrors(null);
         }
