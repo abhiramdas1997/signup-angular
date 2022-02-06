@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { passwordChecker } from './custom-validator/password-checker';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,9 @@ export class AppComponent implements OnInit {
       password : ['',Validators.required],
       confirmPassword : ['',Validators.required],
       acceptTandC : [false,Validators.requiredTrue]
-    })      
+    },{
+      validators:passwordChecker('password','confirmPassword')
+    });   
   }
 
   onSubmit (){
